@@ -10,6 +10,7 @@ const Fisherman = function() {
     let stick = 1;
     let stickInWater = false;
     let sleep = false;
+    let bag = 15000;
 
     this.throw = function() { // Забросить удочку
         if(sleep == true) {
@@ -50,7 +51,11 @@ const Fisherman = function() {
     };
 
     this.throw2 = function() {
-        weight += fish;
+        if(weight >= bag) {
+            console.log('Пойманная рыба не влезла в инвентарь.');
+            console.log('Рыба отпущена.');
+            return;
+        } else weight += fish;
     };
 
     this.throw3 = function() {
@@ -67,12 +72,14 @@ const Fisherman = function() {
     this.bite2 = function() { // Поклевка на 2 удочку
         fish = Math.ceil(Math.random() * (3000 - 50) + 50);
         console.log('------------------');
+        numGram();
         console.log('Поймана рыба на ' + fish / 1000 + ' ' + 'кило' + resultGram + '.');
     };
 
     this.bite3 = function() { // Поклевка на 3 удочку
         fish = Math.ceil(Math.random() * (7000 - 100) + 100);
         console.log('------------------');
+        numGram();
         console.log('Поймана рыба на ' + fish / 1000 + ' ' + 'кило' + resultGram + '.');
     };
 
@@ -90,9 +97,25 @@ const Fisherman = function() {
         console.log('Энергия: ' + energy + '%');
         numCoffee();
         console.log('Кофе: ' + coffee + ' ' + result);
+
+        if(stick == 1) {
+            console.log('Удочка: Бамбук СССР');
+        } else if(stick == 2) {
+            console.log('Удочка: TeleStick 4000');
+        } else if(stick == 3) {
+            console.log('Удочка: SuperCatcher Montana 3');
+        } else console.log('error 404');
+
+        if(bag == 15000) {
+            console.log('Сумка: Армейский вещмешок');
+        } else if(bag == 20000) {
+            console.log('Сумка: Grizzli');
+        } else if(bag == 30000) {
+            console.log('Сумка: Shanaman');
+        } else console.log('error 404');
     };
 
-    const numCoffee = function(num = 0) { // Функуция правильного падежа для кофе
+    const numCoffee = function(num = 0) { // Функция правильного падежа для кофе
         let words = ['стаканчик', 'стаканчика', 'стаканчиков'],
             count = coffee % 100;
 
@@ -114,7 +137,7 @@ const Fisherman = function() {
         return result;
     };
 
-    const numGram = function(num = 0) { // Функуция правильного падежа для граммов
+        const numGram = function(num = 0) { // Функция правильного падежа для граммов
         let words = ['грамм', 'грамма', 'граммов'],
             count = fish % 100;
 
@@ -136,7 +159,7 @@ const Fisherman = function() {
         return resultGram;
     };
 
-    const numWeight = function(num = 0) { // Функуция правильного падежа для граммов
+    const numWeight = function(num = 0) { // Функция правильного падежа для граммов
         let words = ['грамм', 'грамма', 'граммов'],
             count = weight % 100;
 
@@ -285,6 +308,44 @@ const Fisherman = function() {
         }
     };
 
+    this.buyBag2 = function() { // Покупка сумки 2
+        if(bag == 20000 || bag == 30000) {
+            console.log('------------------');
+            console.log('У вас уже есть этот рюкзак!');
+            return;
+        } else {
+            if(money < 100) {
+                console.log('------------------');
+                console.log('Недостаточно средств!');
+                return;
+            } else {
+                console.log('------------------');
+                console.log('Вы купили сумку Grizzli.');
+                money -= 100;
+                bag = 20000;
+            }
+        }
+    };
+
+    this.buyBag3 = function() { // Покупка сумки 3
+        if(bag == 30000) {
+            console.log('------------------');
+            console.log('У вас уже есть этот рюкзак!');
+            return;
+        } else {
+            if(money < 300) {
+                console.log('------------------');
+                console.log('Недостаточно средств!');
+                return;
+            } else {
+                console.log('------------------');
+                console.log('Вы купили сумку Shanaman.');
+                money -= 300;
+                bag = 30000;
+            }
+        }
+    };
+
     
 };
 
@@ -300,5 +361,7 @@ document.write('fisherman.sleep() - лечь спать' + '<br>');
 document.write('fisherman.drinkCoffee() - выпить стакан кофе' + '<br>');
 document.write('------------------ Магазин' + ' ------------------------------' + '<br>');
 document.write('fisherman.buyCoffee() - купить стакан кофе (цена: 1.99$)' + '<br>');
-document.write('fisherman.buyStick2() - купить удочку TeleStick 4000 за 100$ (2 уровень)' + '<br>');
-document.write('fisherman.buyStick3() - купить удочку SuperCatcher Montana 3 за 500$ (3 уровень)' + '<br>');
+document.write('fisherman.buyBag2() - купить рюкзак Grizzli (ёмкость: 20 кг --- цена: 100$)' + '<br>');
+document.write('fisherman.buyBag3() - купить рюкзак Shanaman (ёмкость: 30 кг --- цена: 300$)' + '<br>');
+document.write('fisherman.buyStick2() - купить удочку TeleStick 4000 (цена: 100$)' + '<br>');
+document.write('fisherman.buyStick3() - купить удочку SuperCatcher Montana 3 (цена: 500$)' + '<br>');
