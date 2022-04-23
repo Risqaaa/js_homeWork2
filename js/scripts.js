@@ -43,8 +43,23 @@ const Fisherman = function() {
         msg5,
         msg6;
 
+    let welcomeGif = "<img src = './img/welcome.gif'>";
+    let fishGif = "<img src = './img/fisherman.gif'>";
+    let sellGif = "<img style = 'width: 270px;' src = './img/sell.gif'>";
+    let drinkCoffeeGif = "<img style = 'width: 270px;' src = './img/coffee.gif'>";
+    let buyCoffeeGif = "<img style = 'width: 160px;' src = './img/buyCoffee.gif'>";
+    let sleepGif = "<img src = './img/sleep.gif'>";
+    let danceGif = "<img style = 'width: 270px;' src = './img/dance.gif'>";
+    let sadGif = "<img style = 'width: 270px;' src = './img/sad.gif'>";
+    let shrekGif = "<img style = 'width: 200px;' src = './img/shrek.gif'>";
+    let lostGif = "<img style = 'width: 270px;' src = './img/lost.gif'>";
+    let tiredGif = "<img style = 'width: 270px; border-radius: 10px;' src = './img/tired.gif'>";
+    let gotGif = "<img style = 'width: 270px; border-radius: 10px;' src = './img/got.gif'>";
+    let parrotGif = "<img style = 'width: 270px;' src = './img/parrot.gif'>";
+    let parrot2Gif = "<img style = 'width: 270px; border-radius: 10px;' src = './img/parrot2.gif'>";
+        
     let msg0 = 'Добро пожаловать! :)';
-        log.innerHTML = msg0;
+        log.innerHTML = msg0 + '<br/>' + welcomeGif;
 
     left1.addEventListener('click', this.info = function() { // Информация 
 
@@ -83,17 +98,17 @@ const Fisherman = function() {
     left2.addEventListener('click', this.throw = function() { // Забросить удочку
         if(sleep == true) {
             msg1 = 'В данный момент вы отдыхаете...';
-            log.innerHTML = msg1;
+            log.innerHTML = sleepGif + '<br/>' +  msg1;
             return;
         }else if(energy <= 0) {
             msg1 = 'Нет сил, чтобы рыбачить!';
             msg2 = 'Чтобы восстановить, нужно поспать или выпить чашку кофе.';
-            log.innerHTML = msg1 + '<br/>' + msg2;
+            log.innerHTML = tiredGif + '<br/>' + msg1 + '<br/>' + msg2;
             return;
         } else if(stickInWater == true) {
             msg1 = 'Вы уже рыбачите в данный момент!';
             msg2 = 'Подождите...';
-            log.innerHTML = msg1 + '<br/>' + msg2;
+            log.innerHTML = fishGif + '<br/>' +  msg1 + '<br/>' + msg2;
             return;
         } else {
             throw1();
@@ -109,7 +124,7 @@ const Fisherman = function() {
         msg1 = 'Оснастка заброшена в воду.';
         msg2 = 'Поклёвка...';
 
-        log.innerHTML = msg1 + '<br/>' + msg2;
+        log.innerHTML = fishGif + '<br/>' +  msg1 + '<br/>' + msg2;
 
         if(stick == 1) {
             setTimeout(bite, 3000);
@@ -124,7 +139,7 @@ const Fisherman = function() {
         if(weight >= bag) {
             msg1 = 'Пойманная рыба не влезла в инвентарь.';
             msg2 = 'Рыба отпущена.';
-            log.innerHTML = msg1 + '<br/>' + msg2;
+            log.innerHTML = lostGif + '<br/>' + msg1 + '<br/>' + msg2;
             return;
         } else weight += fish;
     };
@@ -137,21 +152,21 @@ const Fisherman = function() {
         fish = Math.ceil(Math.random() * (1000 - 20) + 20);
         numGram();
         msg1 = 'Поймана рыба на ' + fish + ' ' + resultGram + '.';
-        log.innerHTML = msg1;
+        log.innerHTML = gotGif + '<br/>' + msg1;
     };
     
     const bite2 = function() { // Поклевка на 2 удочку
         fish = Math.ceil(Math.random() * (3000 - 50) + 50);
         numGram();
         msg1 = 'Поймана рыба на ' + fish / 1000 + ' ' + 'кило' + resultGram + '.';
-        log.innerHTML = msg1;
+        log.innerHTML = gotGif + '<br/>' + msg1;
     };
 
     const bite3 = function() { // Поклевка на 3 удочку
         fish = Math.ceil(Math.random() * (7000 - 100) + 100);
         numGram();
         msg1 = 'Поймана рыба на ' + fish / 1000 + ' ' + 'кило' + resultGram + '.';
-        log.innerHTML = msg1;
+        log.innerHTML = gotGif + '<br/>' + msg1;
     };
 
     const numCoffee = function(num = 0) { // Функция правильного падежа для кофе
@@ -223,18 +238,18 @@ const Fisherman = function() {
     left3.addEventListener('click', this.sell = function() { // Продажа рыбы
         if(sleep == true) {
             msg1 = 'В данный момент вы отдыхаете...';
-            log.innerHTML = msg1;
+            log.innerHTML = sleepGif + '<br/>' +  msg1;
             return;
         }else if(weight != 0) {
 
             money = Math.round((money + weight / 1000) * 100) / 100;
             msg1 = 'Вы продали всю пойманную рыбу.';
             msg2 = 'Выручка: ' + Math.round((weight / 1000) * 100) / 100 + '$';
-            log.innerHTML = msg1 + '<br/>' + msg2;
+            log.innerHTML = sellGif + '<br/>' + msg1 + '<br/>' + msg2;
             weight = 0;
         } else {
             msg1 = 'В инвентаре нет рыбы!';
-            log.innerHTML = msg1;
+            log.innerHTML = shrekGif + '<br/>' + msg1;
         }
     });
 
@@ -249,26 +264,26 @@ const Fisherman = function() {
         }
     };
 
-    const wake = function() {
+    const wake = function() { 
         msg1 = 'Вы выспались и полны энергии!';
-        log.innerHTML = msg1;
+        log.innerHTML = danceGif + '<br/>' + msg1;
         sleep = false;
     };
 
     left5.addEventListener('click', this.sleep = function() { // Сон
         if(sleep == true) {
             msg1 = 'В данный момент вы отдыхаете...';
-            log.innerHTML = msg1;
+            log.innerHTML = sleepGif + '<br/>' +  msg1;
             return;
         } else if(energy == 100) {
             msg1 = 'Вы полны сил!';
-            log.innerHTML = msg1;
+            log.innerHTML = danceGif + '<br/>' +msg1;
             return;
         } else {
             sleep = true;
             msg1 = 'Вы легли спать.';
             msg2 = '*Ждем, пока вы проснетесь...*';
-            log.innerHTML = msg1 + '<br/>' + msg2;
+            log.innerHTML = sleepGif + '<br/>' + msg1 + '<br/>' + msg2;
         }
 
         setTimeout(energy100, 30000);
@@ -279,15 +294,15 @@ const Fisherman = function() {
     right1.addEventListener('click', this.buyCoffee = function() { // Купить кофе
         if(sleep == true) {
             msg1 = 'В данный момент вы отдыхаете...';
-            log.innerHTML = msg1;
+            log.innerHTML = sleepGif + '<br/>' + msg1;
             return;
         }else if(money < 1.99) {
             msg1 = 'Недостаточно средств!';
-            log.innerHTML = msg1;
+            log.innerHTML = sadGif + '<br/>' + msg1;
             return;
         } else {
             msg1 = 'Вы купили стаканчик кофе.';
-            log.innerHTML = msg1;
+            log.innerHTML = buyCoffeeGif + '<br/>' + msg1;
             money -= 1.99;
             coffee += 1;
         }
@@ -296,14 +311,15 @@ const Fisherman = function() {
     left4.addEventListener('click', this.drinkCoffee = function() { // Выпить кофе
         if(sleep == true) {
             msg1 = 'В данный момент вы отдыхаете...';
-            log.innerHTML = msg1;
+            log.innerHTML = sleepGif + '<br/>' +  msg1;
             return;
         }else if(coffee <= 0) {
             msg1 = 'В инвентаре нет кофе!';
-            log.innerHTML = msg1;
+            log.innerHTML = shrekGif + '<br/>' + msg1;
             return;
         } else {
             msg1 = 'Вы выпили стаканчик кофе.';
+            log.innerHTML = drinkCoffeeGif + '<br/>' + msg1;
             coffee -= 1;
             energy70();
         }
@@ -312,19 +328,19 @@ const Fisherman = function() {
     right4.addEventListener('click', this.buyStick2 = function() { // Покупка удочки 2
         if(sleep == true) {
             msg1 = 'В данный момент вы отдыхаете...';
-            log.innerHTML = msg1;
+            log.innerHTML = sleepGif + '<br/>' +  msg1;
             return;
         }else if(stick == 2 || stick == 3) {
             msg1 = 'У вас уже есть эта удочка!';
-            log.innerHTML = msg1;
+            log.innerHTML = parrot2Gif + '<br/>' + msg1;
             return;
         } else if (money < 100) {
             msg1 = 'Недостаточно средств!';
-            log.innerHTML = msg1;
+            log.innerHTML = sadGif + '<br/>' + msg1;
             return;
         } else {
             msg1 = 'Вы приобрели TeleStick 4000!';
-            log.innerHTML = msg1;
+            log.innerHTML = parrotGif + '<br/>' + msg1;
             money -= 100;
             stick = 2;
         }
@@ -333,37 +349,42 @@ const Fisherman = function() {
     right5.addEventListener('click', this.buyStick3 = function() { // Покупка удочки 3 
         if(sleep == true) {
             msg1 = 'В данный момент вы отдыхаете...';
-            log.innerHTML = msg1;
+            log.innerHTML = sleepGif + '<br/>' +  msg1;
             return;
         }else if(stick == 3) {
             msg1 = 'У вас уже есть эта удочка!';
-            log.innerHTML = msg1;
+            log.innerHTML = parrot2Gif + '<br/>' + msg1;
             return;
         } else if (money < 500) {
             msg1 = 'Недостаточно средств!';
-            log.innerHTML = msg1;
+            log.innerHTML = sadGif + '<br/>' + msg1;
             return;
         } else {
             msg1 = 'Вы приобрели SuperCatcher Montana!';
-            log.innerHTML = msg1;
+            log.innerHTML = parrotGif + '<br/>' + msg1;
             money -= 500;
             stick = 3;
         }
     });
 
     right2.addEventListener('click', this.buyBag2 = function() { // Покупка сумки 2
+        if(sleep == true) {
+            msg1 = 'В данный момент вы отдыхаете...';
+            log.innerHTML = sleepGif + '<br/>' +  msg1;
+            return;
+        }
         if(bag == 20000 || bag == 30000) {
             msg1 = 'У вас уже есть этот рюкзак!';
-            log.innerHTML = msg1;
+            log.innerHTML = parrot2Gif + '<br/>' + msg1;
             return;
         } else {
             if(money < 100) {
                 msg1 = 'Недостаточно средств!';
-                log.innerHTML = msg1;
+                log.innerHTML = sadGif + '<br/>' + msg1;
                 return;
             } else {
                 msg1 = 'Вы купили сумку Grizzli.';
-                log.innerHTML = msg1;
+                log.innerHTML = parrotGif + '<br/>' + msg1;
                 money -= 100;
                 bag = 20000;
             }
@@ -371,18 +392,23 @@ const Fisherman = function() {
     });
 
     right3.addEventListener('click', this.buyBag3 = function() { // Покупка сумки 3
+        if(sleep == true) {
+            msg1 = 'В данный момент вы отдыхаете...';
+            log.innerHTML = sleepGif + '<br/>' +  msg1;
+            return;
+        }
         if(bag == 30000) {
             msg1 = 'У вас уже есть этот рюкзак!';
-            log.innerHTML = msg1;
+            log.innerHTML = parrot2Gif + '<br/>' + msg1;
             return;
         } else {
             if(money < 300) {
                 msg1 = 'Недостаточно средств!';
-                log.innerHTML = msg1;
+                log.innerHTML = sadGif + '<br/>' + msg1;
                 return;
             } else {
                 msg1 = 'Вы купили сумку Shanaman.';
-                log.innerHTML = msg1;
+                log.innerHTML = parrotGif + '<br/>' + msg1;
                 money -= 300;
                 bag = 30000;
             }
