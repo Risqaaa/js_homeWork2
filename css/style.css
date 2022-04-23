@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Russo One', sans-serif;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.header {
+    background-color: #ededed;
+    display: flex;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header__logo {
+    width: 200px;
+    margin-right: 50px;
+}
+
+.header__logo img {
+    width: 200px;
+}
+
+.header__title {
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.main .container {
+    display: flex;
+}
+
+.main .container .left,
+.main .container .right {
+    width: 30%;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.main .container .left img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* .main .container .left div:nth-child(2) {
+    margin-top: 2px;
+}  */
+
+/*.main .container .left div:nth-child(6) {
+    margin-top: 3px;
+} */
+
+.main .container .left img,
+.main .container .right img {
+    transition: 0.5s;
+}
+
+.main .container .left img:hover,
+.main .container .right img:hover {
+    width: 95%;
+    margin-bottom: 4px;
+    transition: 0.5s;
+}
+
+.main .container .middle {
+    width: 50%;
+    height: 405px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 44px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 24px;
+    text-align: center;
+}
+
+.main .container .right div {
+    margin-bottom: 1px;
+}
+
+.main .container .right img {
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 48px;
+    /* border: 1px solid #ccc; */
+    background-color: #ccc;
+    margin-top: 30px;
+}
+
+.footer a {
+    text-decoration: none;
+    color:rgba(0, 0, 0, 0.6);
+}
