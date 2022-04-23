@@ -1,39 +1,29 @@
 const Fisherman = function() {
-    let weight = 0;
-    let money = 0;
-    let energy = 100;
-    let coffee = 0;
-    let fish = 0;
-    let result;
-    let resultGram;
-    let resultWeight;
-    let stick = 1;
-    let stickInWater = false;
-    let sleep = false;
-    let bag = 15000;
+    let weight = 0,
+        money = 0,
+        energy = 100,
+        coffee = 0,
+        fish = 0,
+        result,
+        resultGram,
+        resultWeight,
+        stick = 1,
+        stickInWater = false,
+        sleep = false,
+        bag = 15000,
 
-    let log = document.querySelector('.middle');
-    console.log(log);
-    let left1 = document.querySelector('.left1');
-    console.log(left1);
-    let left2 = document.querySelector('.left2');
-    console.log(left2);
-    let left3 = document.querySelector('.left3');
-    console.log(left3);
-    let left4 = document.querySelector('.left4');
-    console.log(left4);
-    let left5 = document.querySelector('.left5');
-    console.log(left5);
-    let right1 = document.querySelector('.right1');
-    console.log(right1);
-    let right2 = document.querySelector('.right2');
-    console.log(right2);
-    let right3 = document.querySelector('.right3');
-    console.log(right3);
-    let right4 = document.querySelector('.right4');
-    console.log(right4);
-    let right5 = document.querySelector('.right5');
-    console.log(right5);
+    log = document.querySelector('.middle'),
+    left1 = document.querySelector('.left1'),
+    left2 = document.querySelector('.left2'),
+    left3 = document.querySelector('.left3'),
+    left4 = document.querySelector('.left4'),
+    left5 = document.querySelector('.left5'),
+    right1 = document.querySelector('.right1'),
+    right2 = document.querySelector('.right2'),
+    right3 = document.querySelector('.right3'),
+    right4 = document.querySelector('.right4'),
+    right5 = document.querySelector('.right5');
+
     
 
     let msg1,
@@ -43,20 +33,20 @@ const Fisherman = function() {
         msg5,
         msg6;
 
-    let welcomeGif = "<img src = './img/welcome.gif'>";
-    let fishGif = "<img src = './img/fisherman.gif'>";
-    let sellGif = "<img style = 'width: 270px;' src = './img/sell.gif'>";
-    let drinkCoffeeGif = "<img style = 'width: 270px;' src = './img/coffee.gif'>";
-    let buyCoffeeGif = "<img style = 'width: 160px;' src = './img/buyCoffee.gif'>";
-    let sleepGif = "<img src = './img/sleep.gif'>";
-    let danceGif = "<img style = 'width: 270px;' src = './img/dance.gif'>";
-    let sadGif = "<img style = 'width: 270px;' src = './img/sad.gif'>";
-    let shrekGif = "<img style = 'width: 200px;' src = './img/shrek.gif'>";
-    let lostGif = "<img style = 'width: 270px;' src = './img/lost.gif'>";
-    let tiredGif = "<img style = 'width: 270px; border-radius: 10px;' src = './img/tired.gif'>";
-    let gotGif = "<img style = 'width: 270px; border-radius: 10px;' src = './img/got.gif'>";
-    let parrotGif = "<img style = 'width: 270px;' src = './img/parrot.gif'>";
-    let parrot2Gif = "<img style = 'width: 270px; border-radius: 10px;' src = './img/parrot2.gif'>";
+    let welcomeGif = "<img src = './img/welcome.gif'>",
+    fishGif = "<img src = './img/fisherman.gif'>",
+    sellGif = "<img style = 'width: 270px;' src = './img/sell.gif'>",
+    drinkCoffeeGif = "<img style = 'width: 270px;' src = './img/coffee.gif'>",
+    buyCoffeeGif = "<img style = 'width: 160px;' src = './img/buyCoffee.gif'>",
+    sleepGif = "<img src = './img/sleep.gif'>",
+    danceGif = "<img style = 'width: 270px;' src = './img/dance.gif'>",
+    sadGif = "<img style = 'width: 270px;' src = './img/sad.gif'>",
+    shrekGif = "<img style = 'width: 200px;' src = './img/shrek.gif'>",
+    lostGif = "<img style = 'width: 270px;' src = './img/lost.gif'>",
+    tiredGif = "<img style = 'width: 270px; border-radius: 10px;' src = './img/tired.gif'>",
+    gotGif = "<img style = 'width: 270px; border-radius: 10px;' src = './img/got.gif'>",
+    parrotGif = "<img style = 'width: 270px;' src = './img/parrot.gif'>",
+    parrot2Gif = "<img style = 'width: 270px; border-radius: 10px;' src = './img/parrot2.gif'>";
         
     let msg0 = 'Добро пожаловать! :)';
         log.innerHTML = msg0 + '<br/>' + welcomeGif;
@@ -191,24 +181,17 @@ const Fisherman = function() {
         return result;
     };
 
-        const numGram = function(num = 0) { // Функция правильного падежа для граммов
+    const numGram = function(num = 0) { // Функция правильного падежа для граммов
         let words = ['грамм', 'грамма', 'граммов'],
             count = fish % 100;
 
-        if (count > 4 && count < 21) {
-            resultGram = words[2];
-        } else {
-            count = count % 10;
-            if (count == 1) {
-                resultGram = words[0];
-            } else {
-                if (count > 1 && count < 5) {
-                    resultGram = words[1];
-                } else {
-                    resultGram = words[2];
-                }
+        if (count > 4 && count < 21) resultGram = words[2];
+        else count = count % 10;
+        if (count == 1) resultGram = words[0];
+        else {
+                if (count > 1 && count < 5) resultGram = words[1];
+                else resultGram = words[2];
             }
-        }
 
         return resultGram;
     };
