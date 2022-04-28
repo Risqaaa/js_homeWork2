@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Exo 2', sans-serif;
+    background-color: #e5e5e5;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.container__header {
+    text-align: center;
+    height: 50px;
+    background-color: rgb(0, 115, 161);
+    color: #fff;
+    line-height: 54px;
+}
+
+.container__header h2 {
+    font-size: 40px;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 3px;
+}
+
+.container__input {
+    text-align: center;
+}
+
+.input,
+.task {
+    font-size: 22px;
+    width: 100%;
+    padding: 10px 5px;
+    background-color: #eee;
+}
+
+.task {
+    overflow-x: hidden;
+    overflow-wrap: normal;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.task__complited {
+    text-decoration: line-through;
+    color: #ccc;
+    background-color: rgb(231, 231, 231);
+    transition: 0.3s;
+}
+
+.task__btnCom,
+.task__btnCom_active {
+    border: 0;
+    background-color: #fff;
+    padding: 5px;
+    color: #fff;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.task__btnCom_active {
+    background-color: rgb(43, 255, 0);
+    background-image: url(../img/done.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.task__btnDel {
+    width: 24px;
+    height: 24px;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url(../img/trash.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.task__btnDel:hover {
+    background-image: url(../img/trash2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 0.3s;
+}
+
+.task__btns {
+    width: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
