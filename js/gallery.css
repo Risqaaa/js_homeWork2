@@ -1,0 +1,40 @@
+.gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 3px;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.gallery__top {
+    text-align: center;
+}
+
+.gallery__top img {
+    width: 15%;
+}
+
+.gallery__bottom {
+    position: relative;
+}
+
+.gallery__close {
+    position: absolute;
+    border: 0;
+
+    background-color: transparent;
+    font-size: 32px;
+    border-radius: 50%;
+    padding: 5px;
+
+    right: 10px;
+    color: #fff;
+    text-shadow: 0 0 5px #000;
+    cursor: pointer;
+
+    transform: rotate(45deg);
+}
