@@ -8,10 +8,10 @@ const galleryFunc = function() {
     // console.log(img3);
     img4 = document.querySelector('.img4'),
     // console.log(img4);
-    img1Big = "<img src = '../img/1.jpg'>",
-    img2Big = "<img src = '../img/2.jpg'>",
-    img3Big = "<img src = '../img/3.jpg'>",
-    img4Big = "<img src = '../img/4.jpg'>";
+    img1Big = "<img src = './img/1.jpg'>",
+    img2Big = "<img src = './img/2.jpg'>",
+    img3Big = "<img src = './img/3.jpg'>",
+    img4Big = "<img src = './img/4.jpg'>";
 
     let gallery = document.querySelector('.gallery');
     // console.log(gallery);
