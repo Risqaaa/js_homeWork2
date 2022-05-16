@@ -1,0 +1,82 @@
+.calc {
+    width: 300px;
+    height: 485px;
+
+    background-color: #303d3f;
+    color: #708689;
+
+    display: flex;
+    flex-direction: column;
+
+    font-size: 40px;
+
+    font-family: arial;
+}
+
+.calc__screen {
+    height: 110px;
+    width: 300px;
+
+    text-align: right;
+    line-height: 110px;
+    padding-right: 25px;
+    overflow-x: hidden;
+    color: #fff;
+}
+
+.calc__btns {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.calc__btn {
+    width: 75px;
+    height: 75px;
+    text-align: center;
+    line-height: 75px;
+    border: 1px solid #3d4c4e;
+    cursor: pointer;
+}
+
+.calc__btn:hover {
+    background-color: #39484a;
+}
+
+.calc__btn_0 {
+    width: 150px;
+}
+
+.calc__btn_c,
+.calc__btn_plusminus,
+.calc__btn_prc {
+    background-color: #39484a;
+}
+
+.calc__btn_c:hover,
+.calc__btn_plusminus:hover,
+.calc__btn_prc:hover {
+    background-color: #435456;
+}
+
+.calc__btn_division,
+.calc__btn_mult,
+.calc__btn_minus,
+.calc__btn_plus,
+.calc__btn_eq {
+    background-color: #6cd1e5;
+    border: 0;
+    border-bottom: 1px solid #64c2d4;
+}
+
+.calc__btn_division:hover,
+.calc__btn_mult:hover,
+.calc__btn_minus:hover,
+.calc__btn_plus:hover,
+.calc__btn_eq:hover {
+    background-color: #75e0f6;
+}
+
+.calc__btn_empty {
+    cursor: auto;
+}
