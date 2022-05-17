@@ -21,6 +21,18 @@ const calc = function() {
         screen.textContent = a;
     };
 
+    const calculation = function() {
+        if(sign == '+') {
+            a = (+a) + (+b);
+        } else if (sign == '-') {
+            a = (+a) - (+b);
+        } else if(sign == 'x') {
+            a = (+a) * (+b);
+        } else if (sign == '/') {
+            a = (+a) / (+b);
+        }
+    };
+
     const c = document.querySelector('.calc__btn_c');
     c.addEventListener('click', clear);
 
@@ -49,15 +61,7 @@ const calc = function() {
 
         if(operation.includes(key)) {
             if(a != '' && b != '' && !result) {                
-                if(sign == '+') {
-                    a = (+a) + (+b);
-                } else if (sign == '-') {
-                    a = (+a) - (+b);
-                } else if(sign == 'x') {
-                    a = (+a) * (+b);
-                } else if (sign == '/') {
-                    a = (+a) / (+b);
-                }
+                calculation();
                 sign = key;
                 screen.textContent = sign;
 
@@ -74,18 +78,9 @@ const calc = function() {
             if(b == '') {
                 b = a;
             }
-            if(sign == '+') {
-                a = (+a) + (+b);
-            } else if (sign == '-') {
-                a = (+a) - (+b);
-            } else if(sign == 'x') {
-                a = (+a) * (+b);
-            } else if (sign == '/') {
-                a = (+a) / (+b);
-            }
+            calculation();
             result = true;
             screen.textContent = a;
-            console.log(a, sign, b);
         }
 
         if(key == '+/-') {
