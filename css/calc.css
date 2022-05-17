@@ -39,6 +39,11 @@
     cursor: pointer;
 }
 
+.calc__btn_empty {
+    width: 75px;
+    height: 75px;
+}
+
 .calc__btn:hover {
     background-color: #39484a;
 }
@@ -75,8 +80,4 @@
 .calc__btn_plus:hover,
 .calc__btn_eq:hover {
     background-color: #75e0f6;
-}
-
-.calc__btn_empty {
-    cursor: auto;
 }

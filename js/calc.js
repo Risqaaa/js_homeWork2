@@ -4,8 +4,8 @@ const calc = function() {
     sign = '', 
     result = false;
 
-    const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', ],
-    operation = ['+', '-', 'x', '/', ],
+    const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'],
+    operation = ['+', '-', 'x', '/'],
     screen = document.querySelector('.calc__screen p');
 
     const clear = function() {
